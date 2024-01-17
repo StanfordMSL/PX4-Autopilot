@@ -381,7 +381,7 @@ bool EKF2::multi_init(int imu, int mag)
 }
 #endif // CONFIG_EKF2_MULTI_INSTANCE
 
-int EKF2::print_status()
+int EKF2::print_status(bool verbose)
 {
 	PX4_INFO_RAW("ekf2:%d EKF dt: %.4fs, attitude: %d, local position: %d, global position: %d\n",
 		     _instance, (double)_ekf.get_dt_ekf_avg(), _ekf.attitude_valid(),
@@ -390,9 +390,9 @@ int EKF2::print_status()
 	perf_print_counter(_ekf_update_perf);
 	perf_print_counter(_msg_missed_imu_perf);
 
-#if defined(DEBUG_BUILD)
-	_ekf.print_status();
-#endif // DEBUG_BUILD
+	if (verbose) {
+		_ekf.print_status();
+	}
 
 	return 0;
 }
@@ -2917,10 +2917,16 @@ extern "C" __EXPORT int ekf2_main(int argc, char *argv[])
 			}
 #endif // CONFIG_EKF2_MULTI_INSTANCE
 
+			bool verbose_status = false;
+
+			if (argc > 2 && (strcmp(argv[2], "-v") == 0)) {
+				verbose_status = true;
+			}
+
 			for (int i = 0; i < EKF2_MAX_INSTANCES; i++) {
 				if (_objects[i].load()) {
 					PX4_INFO_RAW("\n");
-					_objects[i].load()->print_status();
+					_objects[i].load()->print_status(verbose_status);
 				}
 			}
 
