@@ -1,0 +1,12 @@
+menuconfig MODULES_FW_AUTO_TRIM
+	bool "fw_auto_trim"
+	default n
+	---help---
+		Enable support for fixed-wing auto-trim
+
+menuconfig USER_FW_AUTO_TRIM
+	bool "fw_auto_trim running as userspace module"
+	default y
+	depends on BOARD_PROTECTED && MODULES_FW_AUTO_TRIM
+	---help---
+		Put fw_auto_trim in userspace memory
