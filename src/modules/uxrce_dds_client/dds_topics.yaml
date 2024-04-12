@@ -5,46 +5,46 @@
 #####
 publications:
 
-  - topic: /drone5/fmu/out/vehicle_status
+  - topic: /fmu/out/vehicle_status
     type: px4_msgs::msg::VehicleStatus
     
-  - topic: /drone5/fmu/out/vehicle_odometry
+  - topic: /fmu/out/vehicle_odometry
     type: px4_msgs::msg::VehicleOdometry
 
-  - topic: /drone5/fmu/out/trajectory_setpoint
+  - topic: /fmu/out/trajectory_setpoint
     type: px4_msgs::msg::TrajectorySetpoint
     
-  - topic: /drone5/fmu/out/vehicle_attitude_setpoint
+  - topic: /fmu/out/vehicle_attitude_setpoint
     type: px4_msgs::msg::VehicleAttitudeSetpoint
 
-  - topic: /drone5/fmu/out/vehicle_rates_setpoint
+  - topic: /fmu/out/vehicle_rates_setpoint
     type: px4_msgs::msg::VehicleRatesSetpoint
 
-  - topic: /drone5/fmu/out/actuator_motors
+  - topic: /fmu/out/actuator_motors
     type: px4_msgs::msg::ActuatorMotors
 
 # Create uORB::Publication
 subscriptions:
 
-  - topic: /drone5/fmu/in/vehicle_command
+  - topic: /fmu/in/vehicle_command
     type: px4_msgs::msg::VehicleCommand
 
-  - topic: /drone5/fmu/in/offboard_control_mode
+  - topic: /fmu/in/offboard_control_mode
     type: px4_msgs::msg::OffboardControlMode
 
-  - topic: /drone5/fmu/in/trajectory_setpoint
+  - topic: /fmu/in/trajectory_setpoint
     type: px4_msgs::msg::TrajectorySetpoint
     
-  - topic: /drone5/fmu/in/vehicle_attitude_setpoint
+  - topic: /fmu/in/vehicle_attitude_setpoint
     type: px4_msgs::msg::VehicleAttitudeSetpoint
 
-  - topic: /drone5/fmu/in/vehicle_rates_setpoint
+  - topic: /fmu/in/vehicle_rates_setpoint
     type: px4_msgs::msg::VehicleRatesSetpoint
     
-  - topic: /drone5/fmu/in/actuator_motors
+  - topic: /fmu/in/actuator_motors
     type: px4_msgs::msg::ActuatorMotors
 
-  - topic: /drone5/fmu/in/vehicle_visual_odometry
+  - topic: /fmu/in/vehicle_visual_odometry
     type: px4_msgs::msg::VehicleOdometry
 
 # Create uORB::PublicationMulti
