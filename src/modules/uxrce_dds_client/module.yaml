@@ -6,7 +6,7 @@ serial_config:
         else
             set UXRCE_DDS_ARGS "-t udp"
         fi
-        uxrce_dds_client start -n drone5 ${UXRCE_DDS_ARGS}
+        uxrce_dds_client start -n quad5 ${UXRCE_DDS_ARGS}
 
       port_config_param:
         name: UXRCE_DDS_CFG
